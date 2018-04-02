@@ -19,8 +19,19 @@ listRouter.get('/api/list/:listId', function(req, res, next) {
     });
 });
 
+listRouter.get('/api/list', function(req, res, next) {
+  List.find({})
+    .then( list => res.json(list))
+    .catch( err => {
+      createError(500, err.message);
+      next();
+    });
+});
+
 listRouter.post('/api/list', jsonParser, function(req, res, next) {
   debug('POST: /api/list');
+
+  console.log(req.body);
 
   if (!req.body.name) next(createError(400, 'Bad request'));
 
