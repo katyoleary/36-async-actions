@@ -7,7 +7,9 @@
     "test": "DEBUG='recipe*' jest",
     "test-coverage": "DEBUG='recipe*' jest -i --coverage",
     "start": "DEBUG='recipe*' node server.js",
-    "lint": "eslint"
+    "lint": "eslint",
+    "start-db": "mkdir -p ./db && mongod --dbpath ./db",
+    "stop-db": "killall mongod"
   },
   "keywords": [],
   "author": "",
