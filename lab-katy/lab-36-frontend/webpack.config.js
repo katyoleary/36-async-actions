@@ -1,6 +1,6 @@
 'use strict';
 
-require('dotenv').config();
+require('dotenv').config(); //this loads our environment variables from the .env file
 const production = process.env.NODE_ENV === 'production';
 
 const {DefinePlugin, EnvironmentPlugin} = require('webpack');
