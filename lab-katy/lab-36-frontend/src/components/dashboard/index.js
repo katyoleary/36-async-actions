@@ -25,12 +25,18 @@ class Dashboard extends React.Component {
         
         {this.props.lists.map( list =>
           <div key={list._id}>
-            <p>{list.title}</p>
+            <p>{list.name}</p>
             <button onClick={() => this.props.listDestroy(list)}>X</button>
           </div> 
           )}
       </div>
     )
+  }
+}
+
+const mapStateToProps = state => {
+  return {
+    lists: state.lists,
   }
 }
 

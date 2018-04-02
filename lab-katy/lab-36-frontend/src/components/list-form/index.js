@@ -7,7 +7,7 @@ export default class ListForm extends React.Component {
   constructor(props) {
     super(props);
 
-    this.state = props.list ? props.list : { title: '' };
+    this.state = props.list ? props.list : { name: '' };
 
     this.handleSubmit = this.handleSubmit.bind(this);
     this.handleChange = this.handleChange.bind(this);
@@ -27,7 +27,7 @@ export default class ListForm extends React.Component {
     if (result instanceof Promise) {
       result.then(() => this.setState({
         error: null, 
-        title: '',
+        name: '',
       }))
       .catch( error => {
         util.log('LIST FORM EROR', error);
@@ -38,7 +38,7 @@ export default class ListForm extends React.Component {
 
   handleChange(e) {
     e.preventDefault();
-    this.setState({ title: e.target.value })
+    this.setState({ name: e.target.value })
   }
 
   render() {
@@ -47,9 +47,9 @@ export default class ListForm extends React.Component {
         onSubmit={this.handleSubmit}>
 
         <input 
-          name='title'
+          name='name'
           type='text'
-          placeholder={this.state.title}
+          placeholder={this.state.name}
           onChange={this.handleChange} />
 
         <button type='submit'>{this.props.buttonText}</button>
